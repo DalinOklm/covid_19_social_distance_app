@@ -151,7 +151,7 @@
 
     
 <script>
-    var socket = io('http://localhost:3000');
+    var socket = io.connect();
     console.log("socket.id: "+socket)
     var button_submit = document.getElementById('buttonSubmit')
 

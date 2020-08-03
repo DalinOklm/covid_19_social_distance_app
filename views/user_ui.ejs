@@ -159,7 +159,8 @@ display: block;
   <!-- Footer -->
 
 <script>
-  var socket = io('http://localhost:3000');
+  // var socket = io('http://localhost:3000');
+  var socket = io.connect();
 
   // socket.on('connection', () =>{
   //  console.log("socket.id: "+socket.id)
