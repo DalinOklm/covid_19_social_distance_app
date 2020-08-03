@@ -1,0 +1,929 @@
+
+
+
+name
+
+Enzokuhle
+Lethabo
+Melokuhle
+Lubanzi
+Amogelang
+Siyabonga
+Bandile
+Junior
+Bokamoso
+Mpho
+Dlamini
+Nkosi
+Ndlovu
+Khumalo
+Sithole
+Mokoena
+Mkhize
+Mahlangu
+Ngcobo
+Mthembu
+
+
+number
+
+0788692346
+0854645848
+0758868904
+0745858678
+0727585758
+0768563211
+0812789449
+0714987356
+
+
+surname
+
+Enzokuhle
+Melokuhle
+Amahle
+Lethabo
+Amogelang
+Omphile
+Lesedi
+Rethabile
+Luthando
+Thandolwethu
+Precious
+Princess
+Angel
+Blessing
+Faith
+Hope
+Grace
+Pretty
+Amahle
+Luthando
+
+
+*****************************post 
+
+1 Why do we use it?
+
+It is a long established fact that a reade
+
+will be distracted by the readable content of 
+a page when looking at its layout. The point 
+of using Lorem Ipsum is that it has a more-or-
+less normal distribution of letters, as opposed 
+to using 'Content here, content here', making 
+it look like readable English. Many desktop 
+publishing packages and web page editors now 
+use Lorem Ipsum as their default model text, 
+and a search for 'lorem ipsum' will uncover
+
+2 What is Lorem Ipsum?
+
+It is a long established fact that a reade
+
+will be distracted by the readable content of 
+a page when looking at its layout. The point 
+of using Lorem Ipsum is that it has a more-or-
+less normal distribution of letters, as opposed 
+to using 'Content here, content here', making 
+it look like readable English. Many desktop 
+publishing packages and web page editors now 
+use Lorem Ipsum as their default model text, 
+and a search for 'lorem ipsum' will uncover
+
+3  What is Lorem Ipsum?
+
+It is a long established fact that a reade
+
+will be distracted by the readable content of 
+a page when looking at its layout. The point 
+of using Lorem Ipsum is that it has a more-or-
+less normal distribution of letters, as opposed 
+to using 'Content here, content here', making 
+it look like readable English. Many desktop 
+publishing packages and web page editors now 
+use Lorem Ipsum as their default model text, 
+and a search for 'lorem ipsum' will uncover
+
+
+4  What is Lorem Ipsum?
+
+It is a long established fact that a reade
+
+will be distracted by the readable content of 
+a page when looking at its layout. The point 
+of using Lorem Ipsum is that it has a more-or-
+less normal distribution of letters, as opposed 
+to using 'Content here, content here', making 
+it look like readable English. Many desktop 
+publishing packages and web page editors now 
+use Lorem Ipsum as their default model text, 
+and a search for 'lorem ipsum' will uncover
+    
+        //  await Annoucement.find({}).sort([['updatedAt', -1]]).exec(function(err, docs) { 
+        //     console.log("*********** docs"+docs) 
+        //     annoucement_object = docs
+        // });
+       // annoucement_object.sort({'updatedAt': -1})
+        // .sort({"updatedAt": -1}).exec(function(err, docs) { console.log("was sorted") });
+        //console.log("users in dashboar: "+users_fromDB.length)
+      //  console.log('/dashboard users_fromDB[0].tokens[0].token: '+users_fromDB[0].tokens[0].token)
+                    /*admin_annoucement_toClient: annoucement_object*/
+            /*admin_annoucement_toClient: annoucement_object*/
+
+******************************************** OLD HTML CODE FOR CLIENT TO LEAVE A COMMENT *************************
+
+   <!-- <h4>Leave a Comment:</h4>
+       <form role="form">
+         <div class="form-group">
+           <textarea class="form-control" rows="3" required></textarea>
+         </div>
+         <button type="submit" class="btn btn-success">Submit</button>
+       </form>
+       <br><br>
+       
+       <p><span class="badge">2</span> Comments:</p><br> -->
+       
+       <!-- <div class="row">
+         <div class="col-sm-2 text-center">
+           <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+         </div>
+         <div class="col-sm-10">
+           <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+           <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+           <br>
+         </div>
+         <div class="col-sm-2 text-center">
+           <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+         </div>
+         <div class="col-sm-10">
+           <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+           <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+           <br>
+           <p><span class="badge">1</span> Comment:</p><br>
+           <div class="row">
+             <div class="col-sm-2 text-center">
+               <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+             </div>
+             <div class="col-xs-10">
+               <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+               <p>Me too! WOW!</p>
+               <br>
+             </div>
+           </div>
+         </div>
+       </div> -->
+       
+******************************************** OLD HTML CODE FOR CLIENT TO LEAVE A COMMENT *************************
+
+
+
+
+
+
+***************************************** odl code HTML Post 13/05/2020 ***************************************
+
+             <h2>Officially Blogging</h2>
+       <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+         do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat 
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit
+           anim id est laborum consectetur adipiscing elit, sed do eiusmod 
+           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+           minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+           aliquip ex ea commodo consequat.</p> 
+           
+           <buton type="submit" class="btn btn-danger">Delete</buton>
+           <button class="btn btn-primary">Edit</button>
+       <hr>
+
+
+
+
+        <h4><small>RECENT POSTS</small></h4>
+       <hr>
+       <h2>Officially Blogging</h2>
+       <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+         do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat 
+          cupidatat non proident, sunt in culpa qui officia deserunt mollit
+           anim id est laborum consectetur adipiscing elit, sed do eiusmod 
+           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+           minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+           aliquip ex ea commodo consequat.</p>
+       <hr>
+
+
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old code 05/05/2020  ******************************************
+
+
+       // console.log(users_fromDB )
+      // console.log('req.headers.authorization: '+req.headers.authorization )
+ //  console.log('/user_ui req.user: '+req.user)
+ 
+//    console.log('_id: '+req.user._id)
+//    console.log('name: '+req.user.name)
+//    console.log('surname: '+req.user.surname)
+//    console.log('cellnumber: '+req.user.cellnumber)
+//    console.log('age: '+req.user.age)
+//    console.log('item: '+req.user.item)
+//    console.log('username: '+req.user.username)
+//    console.log('password: '+req.user.password)
+//    console.log('tokens[0]._id: '+req.user.tokens[0]._id)
+//    console.log('tokens[0].token: '+req.user.tokens[0].token)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
++++++++++++++++++++++++++++++++++++ old layout of user ui 15/04/2020  ******************************************
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>User UILineUp</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  
+
+
+  <style>
+
+ .card
+{
+    /* height: 120px;
+    width: 120px;  */
+    margin-top: 25px;  
+} 
+
+#you
+{
+    border-style: solid;
+    border-color: red;
+}
+
+#first
+{
+    border-style: solid;
+    border-color: green;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) 
+{
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) 
+{
+  
+  #time_remaining{
+
+  right: 400px;
+
+}
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) 
+{
+  #time_remaining{
+  right: 400px;
+
+  }
+
+  }
+
+  </style>
+
+  <body>
+
+   
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Welcome to Spar</h1>
+          <p>fresh food</p>
+        </div>
+      </div>
+
+
+    
+
+    
+    <div class="container">
+
+        <div class="float-right">
+    
+            <div class="card mt-4 col-xs-8 float-right ">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4>Dear customers thank you for your coorperation</h4>
+                        <div class="card-subtitle text-muted mb-2">
+                            03/06/2020 08:47 AM
+                        </div>
+                        <div class="card-text mb-2">
+                           <!-- <div class="row">
+                               <div class="col-xs-6" style="overflow: scroll;"> -->
+
+                                Lorem ipsum dolor sit amet consectetur 
+                                adipisicing elit. Quisquam soluta voluptates 
+                                ullam deserunt perspiciatis accusamus, 
+                                totam inventore neque voluptas reprehenderit 
+                                corpori
+
+                               <!-- </div>
+                           </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="float-right">
+    
+        <div class="card mt-4 col-xs-8 float-right ">
+            <div class="card-body">
+                <div class="card-title">
+                    <h4>Meat Stock will be deliver tomorrow morning</h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        03/06/2020 03:47 PM
+                    </div>
+                    <div class="card-text mb-2">
+                       <!-- <div class="row">
+                           <div class="col-xs-6" style="overflow: scroll;"> -->
+
+                            Lorem ipsum dolor sit amet consectetur 
+                            adipisicing elit. Quisquam soluta voluptates 
+                            ullam deserunt perspiciatis accusamus, 
+                            totam inventore neque voluptas reprehenderit 
+                            corpori
+
+                           <!-- </div>
+                       </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+      <div class="fixed-top" >
+        <div class="float-right" >
+
+      <div id="time_remaining" class="card text-white bg-secondary mb-3 col-lg-12 col-md-10  col-sm-10 col-xs-10" style="max-width: 18rem; margin-top: 300px;">
+        <div class="card-header">6 min</div>
+        <div class="card-body">
+          <h5 class="card-title">time remaining</h5>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+       
+          
+          
+          <div class="row">
+        
+     <div class="col-lg-3 col-md-4  col-sm-4 col-xs-4">
+
+        <!-- 1 -->
+  <div class="card" id="first">
+      <div class="card-body">
+        <h5 class="card-title">2578</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr smith</h6>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2579</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Dlamini</h6>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card" id="you">
+      <div class="card-body">
+        <h3 class="card-title">2580</h3>
+        <h4 class="card-subtitle mb-2 text-muted">Nkosi</h4>
+      </div>
+
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2581</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr khumalo</h6>
+      </div>
+    </div>
+
+
+        <!-- 5 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2582</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Ndlovu</h6>
+      </div>
+
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2583</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Khumalo</h6>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2584</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Sithole</h6>
+      </div>
+
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2585</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Mahlangu</h6>
+      </div>
+    </div>
+
+
+    <!-- 9 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2586</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Mokoena</h6>
+      </div>
+
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2587</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Mkhize</h6>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card "  >
+      <div class="card-body">
+        <h5 class="card-title">2588</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mthembu</h6>
+      </div>
+
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2589</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Ngcobo</h6>
+      </div>
+    </div>
+
+
+        <!-- 13 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2590</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Gumede</h6>
+      </div>
+
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2591</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Naido</h6>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2592</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Khoza</h6>
+      </div>
+
+    </div>
+
+      </div>
+
+    </div>
+    
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+******************************* old admin dash board code ********************************
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Dashboard LineUp</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  
+
+
+  <style>
+
+ .card
+{
+    /* height: 120px;
+    width: 120px;  */
+    margin-top: 25px;  
+} 
+
+#you
+{
+    border-style: solid;
+    border-color: red;
+}
+
+#first
+{
+    border-style: solid;
+    border-color: green;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) 
+{
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) 
+{
+  
+  #time_remaining{
+
+  right: 400px;
+
+}
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) 
+{
+  #time_remaining{
+  right: 400px;
+
+  }
+
+  }
+
+  </style>
+
+  <body>
+
+   
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Welcome to Spar</h1>
+          <p>fresh food</p>
+        </div>
+      </div>
+
+
+    
+     
+    
+    <div class="container">
+
+        <div class="float-right">
+    
+            <div class="card mt-4 col-xs-8 float-right ">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4>Dear customers thank you for your coorperation</h4>
+                        <div class="card-subtitle text-muted mb-2">
+                            03/06/2020 08:47 AM
+                        </div>
+                        <div class="card-text mb-2">
+                           <!-- <div class="row">
+                               <div class="col-xs-6" style="overflow: scroll;"> -->
+
+                                Lorem ipsum dolor sit amet consectetur 
+                                adipisicing elit. Quisquam soluta voluptates 
+                                ullam deserunt perspiciatis accusamus, 
+                                totam inventore neque voluptas reprehenderit 
+                                corpori
+
+                               <!-- </div>
+                           </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="float-right">
+    
+        <div class="card mt-4 col-xs-8 float-right ">
+            <div class="card-body">
+                <div class="card-title">
+                    <h4>Meat Stock will be deliver tomorrow morning</h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        03/06/2020 03:47 PM
+                    </div>
+                    <div class="card-text mb-2">
+                       <!-- <div class="row">
+                           <div class="col-xs-6" style="overflow: scroll;"> -->
+
+                            Lorem ipsum dolor sit amet consectetur 
+                            adipisicing elit. Quisquam soluta voluptates 
+                            ullam deserunt perspiciatis accusamus, 
+                            totam inventore neque voluptas reprehenderit 
+                            corpori
+
+                           <!-- </div>
+                       </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+<div class="container float-right col-lg-12">
+    <div class="row float-right">
+        <div class="float-right">
+         
+          <hr>
+            <label for="admin"> <h3>New annoucement</h3> </label>
+            <hr>
+
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input required value="" type="text" name="title" id="title" class="form-control">
+            </div>
+
+                <div class="form-group">
+                    <label for="description">description</label>
+                <textarea  name="description" id="description" class="form-control"></textarea>
+                </div>
+
+                <a href="/" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+
+        </div>
+    </div>
+
+      
+</div>
+
+       
+          
+          
+          <div class="row">
+        
+     <div class="col-lg-3 col-md-4  col-sm-4 col-xs-4">
+
+        <!-- 1 -->
+  <div class="card" id="first">
+      <div class="card-body">
+        <h5 class="card-title">2578</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr smith</h6>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2579</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Dlamini</h6>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card" id="you">
+      <div class="card-body">
+        <h3 class="card-title">2580</h3>
+        <h4 class="card-subtitle mb-2 text-muted">Nkosi</h4>
+      </div>
+
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2581</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr khumalo</h6>
+      </div>
+    </div>
+
+
+        <!-- 5 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2582</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Ndlovu</h6>
+      </div>
+
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2583</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Khumalo</h6>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2584</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Sithole</h6>
+      </div>
+
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2585</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Mahlangu</h6>
+      </div>
+    </div>
+
+
+    <!-- 9 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2586</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Mokoena</h6>
+      </div>
+
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2587</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Mkhize</h6>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card "  >
+      <div class="card-body">
+        <h5 class="card-title">2588</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mthembu</h6>
+      </div>
+
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2589</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Ngcobo</h6>
+      </div>
+    </div>
+
+
+        <!-- 13 -->
+  <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2590</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mr Gumede</h6>
+      </div>
+
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2591</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Mrs Naido</h6>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">2592</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Khoza</h6>
+      </div>
+
+    </div>
+
+      </div>
+
+    </div>
+    
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

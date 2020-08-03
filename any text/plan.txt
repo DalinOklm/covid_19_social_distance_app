@@ -1,0 +1,38 @@
+  <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      
+      <div id="admin_post_div"></div>
+       
+     
+   <% for (let index = 0; index < admin_annoucement_toClient.length; index++) { %>
+
+  <h2 id="title_display"><%= admin_annoucement_toClient[index].title %></h2>
+  <h5 id="subtitle_display"><span class="glyphicon glyphicon-time"></span> <%= admin_annoucement_toClient[index].subtitle %></h5>
+  <p id="paragraph_display"><%= admin_annoucement_toClient[index].paragraph %></p>
+
+  <buton type="submit" class="btn btn-danger">Delete</buton>
+  <button class="btn btn-primary">Edit</button>
+        
+       <br><br>
+       <hr>
+
+       <% } %>
+
+
+       <div id="admin_post_div"></div>
+       
+       <% admin_annoucement_toClient.forEach(annoucement => { %>
+ 
+   
+           <h2 id="title_display"><%= annoucement.title %></h2>
+           <h5 id="subtitle_display"><span class="glyphicon glyphicon-time"></span> <%= annoucement.subtitle %></h5>
+           <p id="paragraph_display"><%= annoucement.paragraph %></p>
+ 
+           <buton type="submit" class="btn btn-danger">Delete</buton>
+           <button class="btn btn-primary">Edit</button>
+         
+        <br><br>
+        <hr>
+ 
+        <% }) %>
+      

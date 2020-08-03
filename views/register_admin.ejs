@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>admin register LineUp</title>
+  </head>
+  
+  <style>
+
+ .card
+{
+    /* height: 120px;
+    width: 120px;  */
+    margin-top: 25px;  
+} 
+
+/* .scroll_ticket
+{
+    height: 420px;
+    width: 150px; 
+    text-align: center;
+    overflow: scroll;
+    margin-top: 60px;
+} */
+
+#you
+{
+    border-style: solid;
+    border-color: red;
+}
+
+#first
+{
+    border-style: solid;
+    border-color: green;
+}
+
+#time_remaining
+{
+    height: 120px;
+    width: 120px; 
+    margin: 25px;
+    border-style: solid;
+    border-color: yellow;
+    border-radius: 50%;
+    float: right;
+    left: -60px;
+    text-align: center; 
+}
+
+  </style>
+
+  <body>
+
+   
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Welcome to Spar</h1>
+          <p>fresh food</p>
+        </div>
+      </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+
+                <label for="admin"> <h3>Admin registration</h3> </label>
+                <hr>
+                <form action="/admindata" method="POST">
+                    <div class="form-group">
+                        <label for="Name">Store name</label>
+                        <input name="storename" value="spar" type="text" class="form-control" placeholder="Enter name">
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="Name">address</label>
+                        <input name="address" value="bryanston" type="text" class="form-control" placeholder="Enter surname">
+                    </div>
+        
+        
+                    <div class="form-group">
+                        <label for="Name">shopping center</label>
+                        <input name="shoppingcenter" value="bryanston shopping center" type="text" class="form-control" placeholder="Enter Cell number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">store manager</label>
+                        <input name="storemanager" value="Mr Siyabonga Omphile" type="text" class="form-control" placeholder="Enter Cell number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logo">upload store logo</label>
+                        <input type="file" class="form-control-file" >
+                        <p class="help-block">only png and jpeg type</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">username</label>
+                        <input name="username" value="vooreEden23" type="text" class="form-control" placeholder="Enter name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input name="password" value="12345678" type="text" class="form-control">
+                    </div>
+
+            </div>
+        </div>
+
+        
+
+            <button class="btn btn-primary">Submit</button>
+
+        </form>
+
+         <!-- Footer -->
+  <footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a>DN Application</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

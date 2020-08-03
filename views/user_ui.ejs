@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User_UI</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+
+  <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+  
+  
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <style>
+
+      #commam
+     {
+display: block;
+     }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+  #user_logo
+  {
+    padding-left: 50px; 
+    padding-top: 50px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- <div class="container"> -->
+
+    <nav id="top_navbar"class="navbar navbar-inverse navbar-fixed-top">	
+    
+      <div  class="container-fluid">
+        <div class="row col-md-10 col-sm-10 col-xs-10">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#"> <%= owner %> login   <strong id="<%=user_id%>_time_counter">14 min  </strong> </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!-- </div> -->
+
+
+</div>
+
+  <br>
+ 
+<div class="container-fluid">
+  <div class="row content">
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Spar</h1>
+        <p>fresh food</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- <div class="panel panel-info">
+        <div class="panel-body"><h3>Time remaining</h3></div>
+        <div class="panel-heading"><h3>23 min</h3></div>
+      </div> -->
+
+      <!-- onClick="reply_click(this.id) -->
+      <!-- id="<%=customer_token%> -->
+      
+     <div style="display: none;" id="<%=customer_token%>">
+       <div id="user_waiting_panel" class="panel panel-info">
+        <div  class="panel-heading"><label for="question" class="muted-text"><h3 id="customer_notify" >Next customer please</h3></label></div>
+         <div id="panel_body" class="panel-body">
+          
+          <button id="<%=user_id%>" onClick="reply_click(this.id)" class="btn btn-primary">on my way</button>
+         </div>
+       </div>
+      
+     </div>
+    
+    
+    
+    <span id="people_in_line" class="label label-warning label-lg"> <%= USERS_fromDB.length %> people in line <i class="fas fa-users"></i></span>
+    </div>
+
+    <br>
+    
+    <div class="container">
+
+      
+    <div id="individual_user" class="col-sm-4  sidenav" style="overflow: scroll; height: 800px;">
+
+     
+      <% USERS_fromDB.forEach(everyUser => { %>
+      <div id="<%= everyUser._id %>"   class="well">
+        <h3 class="font-weight-bold"> <%= everyUser.name %></h3>
+        <h4 class="text-muted"><%= everyUser.surname %> </h4>
+          <span id="user_logo"><i class="fas fa-user fa-4x"></i></span>
+       </div>
+       <% }) %>
+ 
+      
+    <!-- end of sidenav--> </div> 
+ 
+     <div  class="col-sm-7 ">
+
+      <h4><small>RECENT POSTS</small></h4> 
+      <hr>
+
+      <div id="post_div"></div>
+
+      <% annoucement_toClient.forEach(annoucement => { %>
+  
+          <h2 id="title"><%= annoucement.title %></h2>
+          <h5 id="subtitle"><span class="glyphicon glyphicon-time"></span> <%= annoucement.subtitle %></h5>
+          <p id="paragraph"><%= annoucement.paragraph %></p>
+        <hr>
+        
+       <% }) %>
+    
+     </div>
+
+    </div>
+    
+
+  </div>
+
+
+</div>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href=""> DN Application</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+<script>
+  var socket = io('http://localhost:3000');
+
+  // socket.on('connection', () =>{
+  //  console.log("socket.id: "+socket.id)
+  // })
+
+  var min = 10;
+  
+  var a = 0
+  	
+function iniClock() {	
+
+if (document.getElementsByTagName("button")[0].getAttribute("id")) {
+  var x = document.getElementsByTagName("button")[0].getAttribute("id");
+console.log("bb id: "+x)
+// a += 1;
+socket.emit("ask_for_time", {msg: a, time_user_id: x})
+} else {
+  console.log("can't find button")
+}
+
+
+setTimeout(iniClock, 60000 /* 1000 call this function after every minute*/)
+}
+
+socket.on("time_waited_res", function(data){
+  if (document.getElementById(data.user_waited_id+"_time_counter")) {
+    console.log("yes this user")
+  document.getElementById(data.user_waited_id+"_time_counter").innerHTML = data.msg
+  }else {
+    console.log("not this user to update timer")
+  }
+})
+
+/*
+1000 = 1 sec
+3500 = 7 sec
+7000 = 15 sec
+30 000 = 30 sec
+60 000 = 60 sec
+*/
+
+ iniClock();
+// console.log("second iniClock: "+iniClock())
+console.log("minute iniClock: "+iniClock())
+//var timeCount = iniClock()
+
+ //document.getElementById("time_counter").innerHTML = timeCount+" min"
+
+
+ 
+     socket.on('landed', function(data){
+      console.log("data: "+data)
+     })
+
+     socket.on('call_customer', function(data){
+       if(document.getElementById(data.looking_customer))
+       {
+        you_next = document.getElementById(data.looking_customer)
+       you_next.style.display = "block";
+       } else{console.log('not this customer')}
+     
+     })
+
+    var people_in_line = document.getElementById('people_in_line')
+    var waiting_people = document.getElementById('waiting_people')
+    
+    socket.on('more_submit', function(data){
+     // console.log("data.total: "+data.total)
+      //console.log("data.surname: "+data.surname)
+      //console.log("data.name: "+data.name)
+      var contest_i = document.createElement("i");
+      contest_i.setAttribute("class", "fas fa-users");
+
+      people_in_line.appendChild(contest_i)
+
+      people_in_line.innerHTML = data.total +" people in line "+' <i class="fas fa-users"></i>'
+
+      
+      var last_in_line = document.getElementById('individual_user')
+      var well = document.createElement('div')
+      var h3 = document.createElement('h3')
+      var h4 = document.createElement('h4')
+      var span = document.createElement('span')
+      // var strongTag = document.getElementsByTagName('strong')
+
+      well.setAttribute("class", "well")
+      h3.setAttribute("class", "font-weight-bold")
+      h4.setAttribute("class", "text-muted")
+      // strongTag.setAttribute("id", data.user_id+"_time_counter")
+
+      h3.innerHTML = data.surname
+      h4.innerHTML = data.name
+      span.innerHTML = '<i class="fas fa-user fa-4x"></i>'
+
+      last_in_line.append(well)
+      well.appendChild(h3)
+      well.appendChild(h4)
+      well.appendChild(span)
+      
+      var nav_bar = document.getElementById("top_navbar")
+     var strong_tag_id = document.getElementsByTagName("strong")[0].getAttribute("id")
+     console.log("267 strong_tag_id: "+strong_tag_id)
+     console.log("268 data.user_id: "+data.user_id+"_time_counter")
+
+     if (data.user_id+"_time_counter" == data.user_id+"_time_counter") {
+       console.log("268 no navbar build for this user")
+     } else {
+       
+      var container_fluid = document.createElement("div")
+      var row_col = document.createElement("div")
+      var ul_ = document.createElement("ul")
+      var li_ = document.createElement("li")
+      var a_ = document.createElement("a")
+      var strong_ = document.createElement("strong")
+
+      container_fluid.setAttribute('class', 'container-fluid')
+      row_col.setAttribute('class', 'row col-md-10 col-sm-10 col-xs-10')
+      ul_.setAttribute('class', 'nav navbar-nav')
+      li_.setAttribute('class', 'active')
+      strong_.setAttribute('id', data.user_id+"_time_counter")
+
+      nav_bar.appendChild(row_col)
+      row_col.appendChild(ul_)
+      ul_.appendChild(li_)
+      li_.appendChild(a_)
+      a_.appendChild(strong_)
+
+     }
+
+   })
+
+//customer reponse
+function reply_click(clicked_id)
+         {
+  //  console.log('button_yes: '+clicked_id)
+    socket.emit('on_my_way', {msg: 'i on my way', customer_res_id: clicked_id })
+    var customer_notify = document.getElementById('customer_notify')
+    var user_waiting_panel = document.getElementById('user_waiting_panel')
+    var panel_body = document.getElementById("panel_body")
+    customer_notify.innerHTML = "waiting for you"
+    user_waiting_panel.setAttribute('class','panel panel-info')
+    panel_body.remove()
+
+       }
+ 
+       socket.on("admin_new_post", function(data){
+        // console.log("data.title: "+data.title)
+        // console.log("data.subtitle: "+data.subtitle)
+        // console.log("data.description: "+data.description)
+
+        // document.getElementById('title').innerHTML = data.title
+        // document.getElementById('subtitle').innerHTML = data.subtitle
+        // document.getElementById('paragraph').innerHTML = data.description
+
+        var post_div = document.getElementById("post_div")
+        var h4 = document.createElement("h4")
+        var small = document.createElement("small")
+        var hr = document.createElement("hr")
+        var h2 = document.createElement("h2")
+        var h5 = document.createElement("h5")
+        var span = document.createElement("span")
+        var p = document.createElement("p")
+        var hr_2 = document.createElement("hr")
+        
+        span.setAttribute("class", "glyphicon glyphicon-time")
+
+        post_div.appendChild(h4)
+        h4.appendChild(small)
+        post_div.appendChild(hr)
+        post_div.appendChild(h2)
+        post_div.appendChild(h5)
+        h5.appendChild(span)
+        post_div.appendChild(p)
+        post_div.appendChild(hr_2)
+
+       // small.innerHTML = "RECENT POSTS"
+        h2.innerHTML = data.title
+        h5.innerHTML = data.subtitle
+        p.innerHTML = data.description
+
+       })
+
+</script>
+
+</body>
+</html>

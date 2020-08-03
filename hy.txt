@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+  #user_logo
+  {
+
+  }
+
+  .user_botton_next
+  {
+    float: right;
+  }
+
+  </style>
+</head>
+<body>
+
+  
+
+<div class="container-fluid">
+  <div class="row content">
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Dashboard</h1>
+        <p>Power by DN Application</p>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <h2 id="people_in_line2"><%= USERS_fromDB.length %> people in line <i class="fas fa-users"></i></h2>
+    </div> -->
+    <br> 
+    
+    <div class="container">
+      
+    <div id="individual_user" class="col-sm-4 sidenav" style="overflow: scroll; height: 800px;">
+      
+       <h3 id="inStore_label"> <%= in_store_usersfromDB.length %> in store <i class="fas fa-shopping-cart"></i> </h3>
+
+      <div id="inStore">
+        
+        <% in_store_usersfromDB.forEach(inStore_User => { %>
+      <div id="<%= inStore_User._id %>_well_inStore" class="well">
+        <span style="float: right;" id="user_logo" ><i class="fas fa-user fa-4x"></i></span>
+        <h3 class="font-weight-bold"><%= inStore_User.name %></h3>
+        <h4 class="text-muted"><%= inStore_User.surname %></h4>
+        <button  id="<%= inStore_User._id %>"  onClick="reply_inStore_click(this.id)" class="btn btn-primary btn-lg">Done shopping</button>
+     </div>
+        <% }) %>
+   
+        
+       
+      </div>
+      
+      <br>
+      <hr> 
+
+
+     
+        
+       <h3 id="waiting_people" class="text-muted" >Waiting for <%= USERS_waitingfromDB.length %> people</h3>
+
+      <div id="waiting_individual_user" class="well">
+
+       <% USERS_waitingfromDB.forEach(waiting_User => { %>
+     <div id="<%= waiting_User._id %>_well" class="well">
+      <div  id="<%= customer_token_id %>" style="display: none;"></div>
+      <span style="float: right;" id="user_logo" ><i class="fas fa-user fa-4x"></i></span>
+      <h3 class="font-weight-bold"><%= waiting_User.name %></h3>
+      <h4 class="text-muted"><%= waiting_User.surname %></h4>
+      <button id="<%= waiting_User._id %>"  onClick="reply_confirmUser_click(this.id)" class="btn btn-warning btn-lg">confirm here</button>
+   </div>
+       <% }) %>
+
+    </div>
+
+      
+      <br>
+      <hr>
+
+
+
+
+      <h3 id="people_in_line" >  <%= USERS_fromDB.length %> people in line <i class="fas fa-users"></i></h3>
+      <% USERS_fromDB.forEach(everyUser => { %>
+       <div id="<%= everyUser._id %>" class="well">
+         <div id="unique_user_id_from_database" style="display: none;"><%= everyUser._id %></div>
+          <span id="user_logo" ><i class="fas fa-user fa-4x"></i></span>
+          <button id="<%= customer_token_id %>" onClick="reply_click(this.id)" class="btn btn-success btn-lg user_botton_next">Next</button>
+          <h3 class="font-weight-bold"><%= everyUser.surname %></h3>
+          <h4  class="text-muted"><%= everyUser.name %>  </h4>
+       </div>
+       <% }) %>
+       
+ 
+
+
+
+    <!-- end of sidenav--> </div> 
+ 
+     <div  class="col-sm-7">
+
+
+    
+      <h2 id="users_inStore"> <%= in_store_usersfromDB.length %> users in Store</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Item no.</th>
+            <th scope="col"> Age 10-90</th>
+            <th scope="col">Cellnumber</th>
+            <th scope="col">time waited</th>
+          </tr>
+        </thead>
+        <tbody id="table_user_inStore">
+          <% for (let index = 0; index < in_store_usersfromDB.length; index++) { %>
+          <tr id="<%= in_store_usersfromDB[index]._id %>_trInStore">
+            <th scope="row"><%= index %></th>
+            <td><%= in_store_usersfromDB[index].name %></td>
+            <td><%= in_store_usersfromDB[index].item %></td>
+            <td><%= in_store_usersfromDB[index].age %></td>
+            <td><%= in_store_usersfromDB[index].cellnumber %></td>
+            <td><span  class="label label-success"> 0 min</span></td>
+          </tr>
+          <thead>in store</thead>
+          <%  } %>
+        </tbody>
+      </table>
+
+
+
+
+      <h2 id="waiting_List_Table"><%= USERS_waitingfromDB.length %> on waiting List</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Item no.</th>
+            <th scope="col"> Age 10-90</th>
+            <th scope="col">Cellnumber</th>
+            <th scope="col">time waited</th>
+          </tr>
+        </thead>
+        <tbody id="table_user_waitingList">
+          <% for (let index = 0; index < USERS_waitingfromDB.length; index++) { %>
+          <tr id="<%= USERS_waitingfromDB[index]._id %>_trWaitingList">
+            <th scope="row"><%= index %></th>
+            <td><%= USERS_waitingfromDB[index].name %></td>
+            <td><%= USERS_waitingfromDB[index].item %></td>
+            <td><%= USERS_waitingfromDB[index].age %></td>
+            <td><%= USERS_waitingfromDB[index].cellnumber %></td>
+            <td><span id="<%= USERS_waitingfromDB[index]._id %>_trWaitingList_timeWaited"  class="label label-success"> 0 min</span></td>
+          </tr>
+          <thead>in store</thead>
+          <%  } %>
+        </tbody>
+      </table>
+
+
+      <h2 id="people_in_line3"> <%= USERS_fromDB.length %> users in line</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Item no.</th>
+            <th scope="col"> Age 10-90 </th>
+            <th scope="col">Cellnumber</th>
+            <th scope="col">time waited</th>
+          </tr>
+        </thead>
+        <tbody id="table_user_inLine">
+          <% for (let index = 0; index < USERS_fromDB.length; index++) { %>
+          <tr id="<%= USERS_fromDB[index]._id %>_trInline">
+            <th scope="row"><%= index %></th>
+            <td><%= USERS_fromDB[index].name %></td>
+            <td><%= USERS_fromDB[index].item %></td>
+            <td><%= USERS_fromDB[index].age %></td>
+            <td><%= USERS_fromDB[index].cellnumber %></td>
+            <td><span id="<%= USERS_fromDB[index]._id %>_timeWaited"  class="label label-success">0 min</span></td>
+          </tr>
+          <%  } %>
+        </tbody>
+      </table>
+
+
+    
+       
+       <!-- <h4><small>RECENT POSTS</small></h4> -->
+
+       <div id="admin_post_div"></div>
+       
+       <% for (let index = 0; index < admin_annoucement_toClient.length; index++) { %>
+
+        <h2 id="title_display"><%= admin_annoucement_toClient[index].title %></h2>
+        <h5 id="subtitle_display"><span class="glyphicon glyphicon-time"></span> <%= admin_annoucement_toClient[index].subtitle %></h5>
+        <p id="paragraph_display"><%= admin_annoucement_toClient[index].paragraph %></p>
+      
+        <buton type="submit" class="btn btn-danger">Delete</buton>
+        <button class="btn btn-primary">Edit</button>
+              
+             <br><br>
+             <hr>
+      
+             <% } %>
+      
+      
+
+
+
+    
+       
+       <br>
+       <br>
+ 
+       <label for="admin"> <h3>New annoucement</h3> </label>
+       <hr>
+ 
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input  id="title" value="" type="text"  class="form-control">
+            </div>
+     
+            <div class="form-group">
+             <label for="title">Sub-title (Optional)</label>
+             <input  id="subtitle" value="" type="text"  class="form-control">
+         </div>
+     
+                <div class="form-group">
+                    <label for="description">description</label>
+                <textarea id="description" class="form-control"></textarea>
+                </div>
+     
+                <button id="submit_post_button" type="submit" class="btn btn-primary">Post</button>
+           
+                <hr>
+                
+             <hr>
+
+     </div>
+
+
+    </div>
+    
+
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a>DN Application</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+</div>
+
+
+
+  </div>
+
+  
+
+<script>
+
+
+
+  var socket = io('http://localhost:3000');
+
+      var people_in_line = document.getElementById('people_in_line')
+      //var people_in_line2 = document.getElementById('people_in_line2')
+      var people_in_line3 = document.getElementById('people_in_line3')
+      var waiting_people = document.getElementById('waiting_people')
+      var inStore_label = document.getElementById('inStore_label')
+      var inStore_div = document.getElementById('inStore')
+
+
+
+      function adminTimer() {
+
+        setTimeout(adminTimer, 3000)
+      }
+
+      // calling next customer
+      function reply_click(clicked_id)
+         {
+           next_button = document.getElementById(clicked_id)
+           next_button.innerHTML = 'Pending'
+           next_button.setAttribute('class', 'btn btn-warning btn-lg user_botton_next')
+       //   console.log('clicked_id.lenght: '+clicked_id.lenght)
+        //  console.log('id of button next: '+clicked_id)
+          socket.emit('this_customer', {customer_id: clicked_id, msg:'next customer'})
+       }
+
+
+       // confirm customer here
+       function reply_confirmUser_click(clicked_id)
+         {
+           console.log("button_id: "+clicked_id)
+           console.log("clicked_id+_well: "+clicked_id+"_well")
+          confirm_user_here_button = document.getElementById(clicked_id+"_well")
+          confirm_user_here_button.remove()
+          socket.emit('User_present', {present_user_id: clicked_id, msg:'user here, remove from waiting list'})
+       }
+
+
+        // confirm customer done shopping
+        function reply_inStore_click(clicked_id)
+         {
+              console.log("in store button_id: "+clicked_id)
+           console.log("clicked_id+_well: "+clicked_id+"_well_inStore")
+          inStore_user_here_button = document.getElementById(clicked_id+"_well_inStore")
+           console.log("clicked_id+_trInStore: "+clicked_id+"_trInStore")
+         document.getElementById(clicked_id+"_trInStore").remove()
+          inStore_user_here_button.remove()
+         socket.emit('remove_from_inStoreList', {present_user_id: clicked_id, msg:'user here, remove from waiting list'})
+       }
+
+
+  
+      
+      socket.on('more_submit', function(data){
+        var contest_i = document.createElement("i");
+        contest_i.setAttribute("class", "fas fa-users");
+  
+        people_in_line.appendChild(contest_i)
+  
+        people_in_line.innerHTML = data.total +" people in line "+' <i class="fas fa-users"></i>'
+        //people_in_line2.innerHTML = data.total +" people in line "+' <i class="fas fa-users"></i>'
+        people_in_line3.innerHTML = data.total +" users in line"
+
+        var table_node = document.getElementById('table_user_inLine')
+        var tr = document.createElement('tr')
+        var th = document.createElement('th')
+        var td1 = document.createElement('td')
+        var td2 = document.createElement('td')
+        var td3 = document.createElement('td')
+        var td4 = document.createElement('td')
+        var td5 = document.createElement('td')
+        var td6 = document.createElement('td')
+        var span_table = document.createElement('span')
+
+        table_node.appendChild(tr)
+        tr.appendChild(th)
+        // tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td5)
+        tr.appendChild(td4)
+        tr.appendChild(td3)
+        tr.appendChild(td6)
+        td6.appendChild(span_table)
+        tr.appendChild(td6)
+
+       th.setAttribute("scope", "row")
+       tr.setAttribute("id", data.user_id+"_trInline")
+       span_table.setAttribute("class", "label label-success")
+       span_table.setAttribute("id", data.user_id+'_timeWaited')
+       console.log(data.user_id+'_timeWaited')
+
+       th.innerHTML = data.total
+      //  td1.innerHTML = data.surname
+       td5.innerHTML = data.item
+       td2.innerHTML = data.name
+       td3.innerHTML = data.cellnumber
+       td4.innerHTML = data.age
+       span_table.innerHTML = "0 min"
+  
+        
+        var last_in_line = document.getElementById('individual_user')
+        var well = document.createElement('div')
+        var h3 = document.createElement('h3')
+        var h4 = document.createElement('h4')
+        var span = document.createElement('span')
+        var button = document.createElement('button')
+  
+        well.setAttribute("class", "well")
+        well.setAttribute("id", data.user_id)
+        h3.setAttribute("class", "font-weight-bold")
+        h4.setAttribute("class", "text-muted")
+        button.setAttribute("class", "btn btn-success btn-lg user_botton_next")
+        button.setAttribute('id', data.button_next_id)
+        button.addEventListener('click', ()=>{
+        //  console.log('data.customer_id: '+ data.button_next_id) 
+        var socket_button_next = document.getElementById(data.button_next_id)
+        socket_button_next.innerHTML = 'Pending'
+           socket_button_next.setAttribute('class', 'btn btn-warning btn-lg user_botton_next')
+          socket.emit('this_customer', {customer_id: data.button_next_id, msg:'next customer'})
+        })
+        // button.onclick = ()=>{
+        //   reply_click(this.id)
+        // }
+  
+        h3.innerHTML = data.surname
+        h4.innerHTML = data.name
+        button.innerHTML = 'Next'
+        span.innerHTML = '<i class="fas fa-user fa-4x"></i>'
+  
+        last_in_line.append(well)
+        well.appendChild(h3)
+        well.appendChild(h4)
+        well.appendChild(button)
+        well.appendChild(span)
+        
+  
+     })
+
+     socket.on('to_admin', function(data){
+       var label_people_waiting_total = document.getElementById('waiting_people')
+       label_people_waiting_total.innerHTML =  "Waiting for "+ data.total_user_waiting +" people"
+       document.getElementById('waiting_List_Table').innerHTML = data.total_user_waiting +" on waiting List"
+      // console.log('cliend response: '+data.msg)
+      // console.log("server user_token: "+data.user_token)
+
+      var table_node = document.getElementById('table_user_waitingList')
+        var tr = document.createElement('tr')
+        var th = document.createElement('th')
+        var td1 = document.createElement('td')
+        var td2 = document.createElement('td')
+        var td3 = document.createElement('td')
+        var td4 = document.createElement('td')
+        var td5 = document.createElement('td')
+        var td6 = document.createElement('td')
+        var span_table = document.createElement('span')
+
+        table_node.appendChild(tr)
+        tr.appendChild(th)
+        // tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td5)
+        tr.appendChild(td4)
+        tr.appendChild(td3)
+        tr.appendChild(td6)
+        td6.appendChild(span_table)
+        tr.appendChild(td6)
+
+       th.setAttribute("scope", "row")
+       tr.setAttribute("id",data.waiting_user_id+"_trWaitingList")
+       //tr.setAttribute("id", waiting_user_id+"_trInline")
+       span_table.setAttribute("class", "label label-success")
+
+       th.innerHTML = data.user_waiting_total
+      //  td1.innerHTML = data.surname
+       td5.innerHTML = data.item
+       td2.innerHTML = data.name
+       td3.innerHTML = data.cellnumber
+       td4.innerHTML = data.age
+       span_table.innerHTML = "0 min"
+
+      // console.log("data.user_id_to_remove: "+data.user_id_to_remove)
+       console.log("data.user_id_to_remove+__trInline: "+data.user_id_to_remove+"_trInline")
+       document.getElementById(data.user_id_to_remove).remove()
+       document.getElementById(data.user_id_to_remove+"_trInline").remove()
+      // document.getElementById(data.user_id_to_remove+"_trInline").remove()
+
+
+       
+      var contest_i = document.createElement("i");
+      contest_i.setAttribute("class", "fas fa-user fa-4x");
+
+      people_in_line.appendChild(contest_i)
+
+     // waiting_people.innerHTML = "Waiting for "+ data.user_waiting_total +" people"
+
+
+        var last_in_waiting_line = document.getElementById('waiting_individual_user')
+        var well = document.createElement('div')
+        var h3 = document.createElement('h3')
+        var h4 = document.createElement('h4')
+        var span = document.createElement('span')
+        var button_wait = document.createElement('button')
+
+          well.setAttribute("class", "well")
+          well.setAttribute("id", data.waiting_user_id+"_well")
+        h3.setAttribute("class", "font-weight-bold")
+        h4.setAttribute("class", "text-muted")
+        button_wait.setAttribute("class", "btn btn-warning btn-lg")
+        button_wait.setAttribute("id", data.waiting_user_id)
+        button_wait.addEventListener('click', () =>{
+          console.log('hello there user confirm: '+this.id)
+          console.log('data.waiting_user_id: '+data.waiting_user_id)
+          document.getElementById(data.waiting_user_id+"_well").remove()
+           console.log("data.waiting_user_id: "+data.waiting_user_id+"_trWaitingList")
+          document.getElementById(data.waiting_user_id+"_trWaitingList").remove()
+         // reply_confirmUser_click(this.id)
+        // socket.emit('remove_from_waintingList', data.waiting_user_id)
+          socket.emit('User_present', {present_user_id: data.waiting_user_id, msg:'user here, remove from waiting list'})
+        })  
+
+      h3.innerHTML = data.surname
+      h4.innerHTML = data.name
+      span.innerHTML = '<i class="fas fa-user fa-4x"></i>'
+      button_wait.innerHTML = "confirm here"
+
+     last_in_waiting_line.append(well)
+      well.appendChild(span)
+      well.appendChild(h3)
+      well.appendChild(h4)
+      well.appendChild(button_wait)
+
+      
+  var min = 10;
+  
+  var a = 0
+  	
+function iniClock() {	
+
+if (document.getElementsByTagName("button")[0].getAttribute("id")) {
+  var x = document.getElementsByTagName("button")[0].getAttribute("id");
+console.log("bb id: "+x)
+// a += 1;
+socket.emit("ask_for_time", {msg: a, time_user_id: x})
+} else {
+  console.log("can't find button")
+}
+
+
+setTimeout(iniClock, 60000 /* 1000 call this function after every minute*/)
+}
+
+socket.on("time_waited_res", function(data){
+  if (document.getElementById(data.user_waited_id+"_time_counter")) {
+  document.getElementById(data.user_waited_id+"_time_counter").innerHTML = data.msg
+  }else {
+    console.log("not this user to update timer")
+  }
+})
+
+ iniClock();
+// console.log("second iniClock: "+iniClock())
+console.log("minute iniClock: "+iniClock())
+
+     })
+  
+     socket.on('User_present_response', function(data){
+      // console.log("User_present_response event data.msg"+data.msg)
+       console.log("data.waiting_list_count: "+ data.waiting_list_count)
+
+       document.getElementById("waiting_people").innerHTML = "Waiting for "+data.waiting_list_count+" people"
+
+       inStore_label.innerHTML = data.totatl_user_inStore +" people in store"
+       document.getElementById("users_inStore").innerHTML = data.totatl_user_inStore+" users in Store"
+
+       var table_node = document.getElementById('table_user_inStore')
+        var tr = document.createElement('tr')
+        var th = document.createElement('th')
+        var td1 = document.createElement('td')
+        var td2 = document.createElement('td')
+        var td3 = document.createElement('td')
+        var td4 = document.createElement('td')
+        var td5 = document.createElement('td')
+        var td6 = document.createElement('td')
+        var span_table = document.createElement('span')
+
+        table_node.appendChild(tr)
+        tr.appendChild(th)
+        // tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td5)
+        tr.appendChild(td4)
+        tr.appendChild(td3)
+        tr.appendChild(td6)
+        td6.appendChild(span_table)
+        tr.appendChild(td6)
+
+       th.setAttribute("scope", "row")
+       span_table.setAttribute("class", "label label-danger")
+      tr.setAttribute("id", data.inStore_user_id+"_trInStore")
+
+       th.innerHTML = data.totatl_user_inStore
+      //  td1.innerHTML = data.surname
+       td5.innerHTML = data.item
+       td2.innerHTML = data.name
+       td3.innerHTML = data.cellnumber
+       td4.innerHTML = data.age
+       span_table.innerHTML = "45 min"
+
+
+       var last_in_store = document.getElementById('inStore')
+        var well = document.createElement('div')
+        var span = document.createElement('span')
+        var h3 = document.createElement('h3')
+        var h4 = document.createElement('h4')
+        var button_inStore = document.createElement('button')
+
+        well.setAttribute("class", "well")
+          well.setAttribute("id", data.inStore_user_id+"_well_inStore")
+        h3.setAttribute("class", "font-weight-bold")
+        h4.setAttribute("class", "text-muted")
+        button_inStore.setAttribute("class", "btn btn-primary btn-lg")
+        button_inStore.setAttribute("id", data.inStore_user_id)
+        button_inStore.addEventListener('click', () =>{
+          console.log('hello user inStore: '+this.id)
+         // console.log("data.inStore_user_id+_trWaitingList: "+data.inStore_user_id+"_trWaitingList")
+         // document.getElementById(data.inStore_user_id+"_well_inStore").remove()
+          document.getElementById(data.inStore_user_id+"_well_inStore").remove()
+         // reply_confirmUser_click(this.id)
+         
+         socket.emit('remove_from_inStoreList', {present_user_id: data.inStore_user_id, msg:'user here, remove from waiting list'})
+         //socket.emit('remove_from_inStoreList', data.inStore_user_id)
+        })  
+
+        h3.innerHTML = data.surname
+      h4.innerHTML = data.name
+      span.innerHTML = '<i class="fas fa-user fa-4x"></i>'
+      button_inStore.innerHTML = "Done shopping"
+
+     last_in_store.append(well)
+      well.appendChild(span)
+      well.appendChild(h3)
+      well.appendChild(h4)
+      well.appendChild(button_inStore)
+
+     })
+
+     socket.on('updated_users_count', function(data){
+      // console.log('updated_users_count event: '+data)
+       people_in_line.innerHTML = data +" people in line "+' <i class="fas fa-users"></i>'
+       //people_in_line2.innerHTML = data +" people in line "+' <i class="fas fa-users"></i>'
+        people_in_line3.innerHTML = data +" users in line"
+     })
+
+     socket.on('updated_waitinglist_count', function(data){
+      // console.log('updated_users_count event: '+data)
+     // console.log("waitinglist_count event: "+data)
+      waiting_people.innerHTML = "Waiting for "+ data +" people"
+       document.getElementById('waiting_List_Table').innerHTML = data +" on waiting List"
+     })
+
+     socket.on('updata_instore_count', function(data){
+      // console.log('updated_users_count event: '+data)
+     // console.log("updata_instore_count event: "+data)
+      inStore_label.innerHTML = data+" people in store"
+       document.getElementById("users_inStore").innerHTML = data+" users in Store"
+     })
+
+     var submit_post_button = document.getElementById("submit_post_button")
+
+     submit_post_button.addEventListener('click', () =>{
+       console.log('you ve submit')
+
+     var title = document.getElementById('title')
+     var subtitle =  document.getElementById('subtitle')
+     var description =  document.getElementById('description')
+
+    //  console.log("title: "+title.value)
+    //  console.log("sub-title: "+ subtitle.value)
+    //  console.log("desciption: "+ description.value)
+
+     socket.emit("new_post", {title: title.value, subtitle: subtitle.value, description: description.value})
+
+     title.value = "";
+     subtitle.value = "";
+     description.value = "";
+
+     })
+
+     socket.on("admin_new_post", function(data){
+      var admin_post_div = document.getElementById("admin_post_div")
+        var h4 = document.createElement("h4")
+        var small = document.createElement("small")
+        var hr = document.createElement("hr")
+        var h2 = document.createElement("h2")
+        var h5 = document.createElement("h5")
+        var span = document.createElement("span")
+        var p = document.createElement("p")
+        var hr_2 = document.createElement("hr")
+        var edit_button = document.createElement("button")
+        var delete_button = document.createElement("button")
+        
+        span.setAttribute("class", "glyphicon glyphicon-time")
+        edit_button.setAttribute("class", "btn btn-primary")
+        delete_button.setAttribute("class", "btn btn-danger")
+
+       admin_post_div.appendChild(h4)
+        h4.appendChild(small)
+        admin_post_div.appendChild(hr)
+        admin_post_div.appendChild(h2)
+        admin_post_div.appendChild(h5)
+        h5.appendChild(span)
+        admin_post_div.appendChild(p)
+        admin_post_div.appendChild(delete_button)
+        admin_post_div.appendChild(edit_button)
+        admin_post_div.appendChild(hr_2)
+
+        small.innerHTML = "RECENT POSTS"
+        h2.innerHTML = data.title
+        h5.innerHTML = data.subtitle
+        p.innerHTML = data.description
+        delete_button.innerHTML = "Delete"
+        edit_button.innerHTML = "Edit"
+     })
+
+     socket.on("time_waited_res", function(data){
+      // console.log("counter: "+rr)
+      console.log("data.msg id: "+data.msg)
+      console.log("bb id: "+data.user_waited_id)
+      console.log(document.getElementById(data.user_waited_id+"_timeWaited").innerText)
+      document.getElementById(data.user_waited_id+"_timeWaited").innerText = data.msg
+
+
+      if(data.msg == "a few seconds" || 
+      data.msg == "a minute" || 
+      data.msg == "2 minutes" || 
+      data.msg == "3 minutes" || data.msg == "4 minutes")
+      {
+        document.getElementById(data.user_waited_id+"_timeWaited").setAttribute("class", "label label-success")
+      } else if(data.msg == "5 minutes" ||
+      data.msg == "6 minutes" ||
+      data.msg == "7 minutes" || data.msg == "8 minutes" ||
+     data.msg == "9 minutes" || data.msg == "10 minutes" )
+      {
+        document.getElementById(data.user_waited_id+"_timeWaited").setAttribute("class", "label label-warning")
+      }else {
+        document.getElementById(data.user_waited_id+"_timeWaited").setAttribute("class", "label label-danger")
+      }
+     })
+  </script>
+  
+
+
+</body>
+</html>
